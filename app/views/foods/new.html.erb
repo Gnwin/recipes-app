@@ -1,6 +1,6 @@
 <div class="newfood">
   <h1>New Food</h1>
-  <%= form_with model: food, url: create_food_path, method: :post, local: true, scope: :food do |f| %>
+  <%= form_with model: @food, url: create_food_path, method: :post, local: true, scope: :food do |f| %>
     <div>
       <%= f.label :name %><br>
       <%= f.text_field :name, :size => 60 %>
