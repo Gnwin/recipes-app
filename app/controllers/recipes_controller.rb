@@ -17,4 +17,3 @@ class RecipesController < ApplicationController
     redirect_to(request.referer)
   end
 end
- 
