@@ -1,0 +1,40 @@
+<h1>Recipes#show</h1>
+<p>Find me in recipes#show</p>
+
+<h1><%= @recipe.name %></h1>
+
+<div class="block">
+  <div>
+    <p>preparation_time: <%= @recipe.preparation_time %> secs</p>
+    <p>cooking_time: <%= @recipe.cooking_time %> secs</p>
+    <p>steps: <%= @recipe.description %></p>
+  </div>
+
+  <div>public:
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>
+
+<div class="block">
+  <%=link_to "Generate shopping list"%>
+  <%=link_to "Add Ingredient"%>
+</div>
+
+<ul>
+  <li class="listitem">
+    <span class="fixedwidth">Food</span>
+    <span class="centered">Quantity</span>
+    <span class="centered">Value</span>
+    <span class="centered">Actions</span>
+  </li>
+  <% @foods.each do |food| %>
+  <li class="listitem">
+    <span class="fixedwidth"><%= food.name %></span>
+    <span class="centered"><%= food.measurement_unit %></span>
+    <span class="centered"><%= food.price %></span>
+    <span class="centered"><%= link_to "Modify", "/foods/#{ food.id }", data: { 'turbo-method': :update, 'turbo-confirm': 'Are you sure?' } %><%= link_to "Delete", "/foods/#{ food.id }", data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></span>
+  </li>
+<% end %>

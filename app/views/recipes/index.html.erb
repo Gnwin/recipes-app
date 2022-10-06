@@ -1,0 +1,14 @@
+<h1>Recipes#index</h1>
+<p>Find me in app/views/recipes/index.html.erb</p>
+
+
+
+  <% @recipes.each do |recipe| %>
+    <a href="/recipes/<%= recipe.id%>">
+        <div><%= recipe.name %></div>
+        <div><%= recipe.description %><div>
+        <%= link_to "Remove", "/recipes/#{ recipe.id }", data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %>
+      <hr>
+    </a>
+  <% end %>
+
