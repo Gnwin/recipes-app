@@ -4,7 +4,7 @@
 <%= button_to 'Add recipe', recipes_new_path, method: :get  %>
 
   <% @recipes.each do |recipe| %>
-    <a href="/recipes/#{recipe.id}">
+    <a href="/recipes/<%=recipe.id%>">
         <div>
           <%= recipe.name %>
         </div>

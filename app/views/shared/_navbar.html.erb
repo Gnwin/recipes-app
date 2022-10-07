@@ -1,0 +1,32 @@
+<nav class="nav_bar">
+  <a href="/" class="nav_bar__logo">Recipe App</a>
+  <ul class="nav_bar__links">
+
+      <li>
+        <%= button_to "Log out" %>
+      </li>
+      <li>
+        <%= link_to 'current_user.name' %>
+      </li>
+      <li>
+        <%= link_to 'foods', foods_path %>
+      </li>
+      <li>
+        <%= link_to 'recipes', recipes_path %>
+      </li>
+      <li>
+        <%= link_to 'public_recipes', public_recipes_path %>
+      </li>
+      <li>
+        <%= link_to 'shopping_list', shopping_list_path %>
+      </li>
+
+      <li>
+        <%= link_to 'Register' %>
+      </li>
+      <li>
+        <%= link_to 'Sign in' %>
+      </li>
+
+  </ul>
+</nav>
