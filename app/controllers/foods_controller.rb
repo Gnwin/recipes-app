@@ -1,3 +1,5 @@
+require 'pry'
+
 class FoodsController < ApplicationController
   def index
     @current_user = current_user
@@ -13,6 +15,7 @@ class FoodsController < ApplicationController
     @food = Food.new(foods_params)
     @food.user = current_user
     if @food.save
+      binding.pry
       flash[:success] = 'Food created successfully'
     else
       flash.now[:error] = 'Error: Food could not be saved'
