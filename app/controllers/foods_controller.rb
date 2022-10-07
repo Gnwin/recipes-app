@@ -9,7 +9,7 @@ class FoodsController < ApplicationController
   def new
     @current_user = current_user
     @food = Food.new
-    @units = ['grams', 'units', 'kilograms', 'litre']
+    @units = %w[grams units kilograms litre]
   end
 
   def create
