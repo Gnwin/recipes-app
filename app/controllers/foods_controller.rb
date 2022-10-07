@@ -9,13 +9,13 @@ class FoodsController < ApplicationController
   def new
     @current_user = current_user
     @food = Food.new
+    @units = ['grams', 'units', 'kilograms', 'litre']
   end
 
   def create
     @food = Food.new(foods_params)
     @food.user = current_user
     if @food.save
-      binding.pry
       flash[:success] = 'Food created successfully'
     else
       flash.now[:error] = 'Error: Food could not be saved'

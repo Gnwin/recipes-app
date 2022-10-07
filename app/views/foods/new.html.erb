@@ -8,7 +8,7 @@
 
     <div>
       <%= f.label :measurement_unit %><br>
-      <%= f.text_field :measurement_unit, :size => 10 %>
+      <%= f.select :measurement_unit, @units.map {|unit| "#{unit}"} %>
     </div>
 
     <div>
