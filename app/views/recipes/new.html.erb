@@ -1,0 +1,26 @@
+<div class="newfood">
+  <h1>New recipe</h1>
+  <%= form_with model: @recipe, url: create_recipe_path, method: :post, local: true, scope: :recipe do |f| %>
+    <div>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, :size => 60 %>
+    </div>
+
+    <div>
+      <%= f.label :preparation_time %><br>
+      <%= f.number_field :preparation_time, :size => 10 %>
+    </div>
+
+    <div>
+      <%= f.label :cooking_time %><br>
+      <%= f.number_field :cooking_time, :size => 10 %>
+    </div>
+
+    <div>
+      <%= f.label :description %><br>
+      <%= f.text_field :description, :size => 10 %>
+    </div>
+
+    <%= f.submit "Add recipe" , class: "submit" %>
+  <% end %>
+</div>

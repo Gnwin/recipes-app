@@ -1,0 +1,31 @@
+<div class="hidden">Here is the shopping list for current user, to do all owned recipes</div>
+<center>
+<h1>Shopping List</h1>
+<div class="shoppinglist">
+  <div class="totals">
+    <div>Amount of food items to buy: <%= @food_count %></div>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div>Total value of food needed: <%= @total_price %></div>
+  </div>
+  <div class="generallist">
+    <ul>
+      <li class="listitem">
+        <span class="fixedwidth">Food</span>
+        <span class="centered">Quantity</span>
+        <span class="centered">Unit</span>
+        <span class="centered">Price</span>
+      </li>
+      <% @qs.each do |key, q| %>
+        <% if q > 0 %>
+          <li class="listitem">
+            <span class="fixedwidth"><%= Food.find(key).name %></span>
+            <span class="centered"><%= q %></span>
+            <span class="centered"><%= Food.find(key).measurement_unit %></span>
+            <span class="centered"><%= @price[key] %></span>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</center>
