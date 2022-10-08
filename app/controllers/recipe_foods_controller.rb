@@ -5,13 +5,13 @@ class RecipeFoodsController < ApplicationController
     @current_user = current_user
     @recipe_food = RecipeFood.new
     @foods = Food.where(user: current_user)
-    $recipe = Recipe.find(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
   def create
     @foods = Food.where(user: current_user)
     @recipe_food = RecipeFood.new(recipe_food_params)
-    @recipe_food.recipe = $recipe
+    @recipe_food.recipe = @recipe
 
     if @recipe_food.save
       flash[:notice] = 'Recipe Food saved successfully'
@@ -21,7 +21,6 @@ class RecipeFoodsController < ApplicationController
     redirect_to recipes_path
   end
 
-
   def edit
     p params
     @recipe_food = RecipeFood.find(params[:recipe_food_id])
@@ -30,7 +29,6 @@ class RecipeFoodsController < ApplicationController
 
   def update
     @recipe_food.quantity = recipe_food_params[:quantity]
-
 
     if @recipe_food.update(recipe_food_params)
       flash[:notice] = 'Recipe Food updated successfully'

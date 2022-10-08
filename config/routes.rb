@@ -1,6 +1,3 @@
-
-
-
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -21,7 +18,6 @@ Rails.application.routes.draw do
   post '/recipe_foods', to: 'recipe_foods#create', as: 'create_recipe_food'
   get '/recipes/:recipe_id/recipe_foods/edit/:recipe_food_id', to: 'recipe_foods#edit', as: 'edit_recipe_food'
   patch '/recipe_foods', to: 'recipe_foods#update', as: 'update_recipe_food'
-  
 
   delete 'recipes/:recipe_id', to: 'recipes#destroy', as: 'destroy_recipe'
   delete 'recipe_foods/:recipe_foods_id', to: 'recipe_foods#destroy', as: 'destroy_recipe_food'

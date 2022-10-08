@@ -6,8 +6,8 @@
 # #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 # #   Character.create(name: "Luke", movie: movies.first)
 
-first_user = User.create(name: 'Tom')
-second_user = User.create(name: 'Lilly')
+User.create(name: 'Tom')
+User.create(name: 'Lilly')
 
 # apple = Food.create(name: 'Apple', user: first_user, measurement_unit: 'kg', price: 1, quantity: 0.5)
 # butter = Food.create(name: 'Butter', user: first_user, measurement_unit: 'kg', price: 5.5, quantity: 0.2)
@@ -31,7 +31,3 @@ second_user = User.create(name: 'Lilly')
 #                              description: 'Put Lemon juice and flour and mix them up, cook it for 5 minutes in the microwave oven', public: true)
 # RecipeFood.create(recipe: third_recipe, food: lemon_juice, quantity: 0.5)
 # RecipeFood.create(recipe: third_recipe, food: flour, quantity: 0.1)
-# fourth_recipe = Recipe.create(name: 'Bread Butter Sugar', user: first_user, preparation_time: 5, cooking_time: 0, description: 'Spread the butter over the bread, then add sugar on it', public: false)
-# RecipeFood.create(recipe: fourth_recipe, food: bread, quantity: 0.1)
-# RecipeFood.create(recipe: fourth_recipe, food: butter, quantity: 0.01)
-# RecipeFood.create(recipe: fourth_recipe, food: sugar, quantity: 0.01)
