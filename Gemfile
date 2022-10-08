@@ -43,7 +43,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootstrap', '~> 5.2.1', require: false
+gem 'bootstrap', '~> 5.2.1'
 
 # Bootstrap depends on jQurey
 gem 'jquery-rails'
