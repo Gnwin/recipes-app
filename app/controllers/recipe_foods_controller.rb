@@ -30,15 +30,14 @@ class RecipeFoodsController < ApplicationController
 
   def update
     @recipe_food.quantity = recipe_food_params[:quantity]
-    binding.pry
 
 
-    # if @recipe_food.update(recipe_food_params)
-    #   flash[:notice] = 'Recipe Food updated successfully'
-    # else
-    #   flash[:alert] = 'Recipe Food not updated'
-    #   render :edit, status: :unprocessable_entity
-    # end
+    if @recipe_food.update(recipe_food_params)
+      flash[:notice] = 'Recipe Food updated successfully'
+    else
+      flash[:alert] = 'Recipe Food not updated'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
