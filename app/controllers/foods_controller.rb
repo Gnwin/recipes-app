@@ -3,7 +3,8 @@ require 'pry'
 class FoodsController < ApplicationController
   def index
     @current_user = current_user
-    @foods = Food.where(user: current_user)
+    # @foods = Food.where(user: current_user)
+    @foods = Food.all
   end
 
   def new

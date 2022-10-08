@@ -17,7 +17,9 @@
         <span class="fixedwidth"><%= food.name %></span>
         <span class="centered"><%= food.measurement_unit %></span>
         <span class="centered"><%= food.price %></span>
-        <span class="centered"><%= link_to "Delete", destroy_food_path(food.id), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></span>
+        <% if can? :destroy, food %>
+          <span class="centered"><%= link_to "Delete", destroy_food_path(food.id), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></span>
+        <% end %>
       </li>
     <% end %>
   </ul>

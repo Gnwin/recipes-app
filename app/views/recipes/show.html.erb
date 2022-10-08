@@ -35,6 +35,11 @@
     <span class="fixedwidth"><%= food.name %></span>
     <span class="centered"><%= food.measurement_unit %></span>
     <span class="centered"><%= food.price %></span>
-    <span class="centered"><%= link_to "Modify", "/foods/#{ food.id }", data: { 'turbo-method': :update, 'turbo-confirm': 'Are you sure?' } %><%= link_to "Delete", "/foods/#{ food.id }", data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></span>
+    <% if can? :manage, food %>
+      <span class="centered">
+        <%= link_to "Modify", "/foods/#{ food.id }", data: { 'turbo-method': :update, 'turbo-confirm': 'Are you sure?' } %>
+        <%= link_to "Delete", "/foods/#{ food.id }", data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %>
+      </span>
+    <% end %>
   </li>
 <% end %>
