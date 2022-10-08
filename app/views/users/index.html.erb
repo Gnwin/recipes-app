@@ -1,11 +1,5 @@
-<p style="color: green"><%= notice %></p>
-<h1>Users</h1>
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
-<%= link_to "New user", new_user_path %>
+<p class="app-description">The Recipe app keeps track of all your recipes, ingredients, and inventory. It will 
+allow you to save ingredients, keep track of what you have, create recipes, and generate 
+a shopping list based on what you have and what you are missing from a recipe. 
+Also, since sharing recipes is an important part of cooking the app should allow you 
+to make them public so anyone can access them. </p>
