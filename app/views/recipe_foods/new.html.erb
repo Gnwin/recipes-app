@@ -1,0 +1,19 @@
+<h1>New Recipe Food</h1>
+
+<div class="newfood">
+  <%= form_with model: @recipe_food, url: create_recipe_food_path, method: :post, local: true, scope: :recipe_food do |f| %>
+
+  <div>
+    <%= f.label :food_id %>
+    <%= f.select :food_id, @foods.map {|food| ["#{food.name} in #{food.measurement_unit}", food.id]}, {}, { class: 'form-select form-select-lg' } %>
+    If food not present you may <%= link_to 'Add New Food' %>
+  </div>
+
+  <div>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+
+    <%= f.submit "Add recipe food" , class: "submit" %>
+  <% end %>
+</div>

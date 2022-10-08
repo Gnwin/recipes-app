@@ -1,3 +1,5 @@
+require 'pry'
+
 class RecipesController < ApplicationController
   def index
     @current_user = current_user
@@ -5,8 +7,11 @@ class RecipesController < ApplicationController
   end
 
   def new
+    # p params
+    # binding.pry
     @current_user = current_user
     @recipe = Recipe.new
+    @foods = Food.where(user: current_user)
   end
 
   def create
@@ -23,8 +28,13 @@ class RecipesController < ApplicationController
   def show
     @current_user = current_user
     @recipe = Recipe.find(params[:recipe_id])
+    @recipe_foods = RecipeFood.where(recipe_id: params[:recipe_id] )
     @foods = Food.where(user: current_user)
   end
+
+  # <%if food.id == recipe_food.food_id%>
+  #   <%=food.name%>
+  # <%end%>
 
   def destroy
     @current_user = current_user

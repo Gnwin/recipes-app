@@ -1,7 +1,7 @@
 <h1>Recipes#index</h1>
 <p>Find me in app/views/recipes/index.html.erb</p>
 
-<%= button_to 'Add recipe', recipes_new_path, method: :get  %>
+<%= button_to 'Add recipe', '/recipes/new', method: :get  %>
 
   <% @recipes.each do |recipe| %>
     <a href="/recipes/<%=recipe.id%>">

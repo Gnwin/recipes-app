@@ -20,7 +20,7 @@
 
 <div class="block">
   <%=link_to "Generate shopping list", shopping_list_path %>
-  <%=link_to "Add Ingredient"%>
+  <%=link_to "Add Ingredient", new_recipe_food_path %>
 </div>
 
 <ul>
@@ -30,11 +30,26 @@
     <span class="centered">Value</span>
     <span class="centered">Actions</span>
   </li>
-  <% @foods.each do |food| %>
+
+  <% @recipe_foods.each do |recipe_food| %>
   <li class="listitem">
-    <span class="fixedwidth"><%= food.name %></span>
-    <span class="centered"><%= food.measurement_unit %></span>
-    <span class="centered"><%= food.price %></span>
-    <span class="centered"><%= link_to "Modify", "/foods/#{ food.id }", data: { 'turbo-method': :update, 'turbo-confirm': 'Are you sure?' } %><%= link_to "Delete", "/foods/#{ food.id }", data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></span>
+
+    <span class="fixedwidth">
+      <%@foods.each do |food|%>
+        <%if food.id == recipe_food.food_id%>
+          <%=food.name%>
+        <%end%>
+      <%end%>
+    </span>
+
+    <span class="centered"><%= recipe_food.quantity %></span>
+    
+    <span class="centered">
+      <%@foods.each do |food|%>
+        <%if food.id == recipe_food.food_id%>
+          <%= recipe_food.quantity * food.price%></span>
+        <%end%>
+      <%end%>
+    <span class="centered"><%= link_to "Modify", "/recipes/:recipe_id//recipe_foods/edit/#{recipe_food.id}" %><%= link_to "Delete", "/recipe_foods/#{recipe_food.id}", data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></span>
   </li>
 <% end %>
